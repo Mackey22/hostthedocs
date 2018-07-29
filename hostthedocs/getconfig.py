@@ -46,6 +46,12 @@ max_content_mb = float(get('max_content_mb', 8))
 
 renderables = dict((k, v) for (k, v) in globals().items() if isinstance(v, six.string_types))
 
+# Login credentials if needed!
+login_required = get('login_required', False)
+secret_key = get('secret_key', "supersecretkey")
+username = get('username', 'admin')
+password = get('password', 'admin')
+
 
 def serve_gevent(app):
     from gevent.wsgi import WSGIServer

@@ -49,6 +49,11 @@ disable_delete = False
 # Default to 8, may need to be much larger if you have big docs.
 max_content_mb = None
 
+# Username and password if login is required
+login_required = None
+username = None
+password = None
+
 # Name of the WSGI server to use.
 # Choose 'flask' or 'gevent'.
 # Default is to use 'flask' if debug == True,

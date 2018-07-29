@@ -7,8 +7,20 @@ import logging
 import zipfile
 import tarfile
 
+from . import getconfig
+
 
 logger = logging.getLogger()
+
+
+def validate_authorization_headers(request):
+    """Returns if the authorization headers are valid.
+
+    :param werkzeug.wrappers.BaseRequest request:
+    :return: True if authorization headers are valid - otherwise False.
+    """
+    username, password = request.headers.get('Authorization', ('', ''))
+    return username == getconfig.username and password == getconfig.password
 
 
 class UploadedFile(object):
