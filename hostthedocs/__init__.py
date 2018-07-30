@@ -16,7 +16,7 @@ def hmfd():
     if getconfig.readonly:
         return abort(403)
 
-    if getconfig.login_required and not util.validate_authorization_headers(request):
+    if getconfig.login_required and not util.validate_credentials(request):
         return abort(401, "Request has invalid or missing credentials.")
 
     if request.method == 'POST':
